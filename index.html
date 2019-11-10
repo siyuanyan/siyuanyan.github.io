@@ -9,7 +9,7 @@
 
 	<script type="text/paperscript" canvas="myCanvas">
 		// The amount of circles we want to make:
-		var count = 150;
+		var count = 80;
 
 		// Create a symbol, which we will use to place instances of later:
 		var path = new Path.Star({
@@ -17,7 +17,7 @@
 			points: 5,
 			radius1: 6,
 			radius2: 15,
-			fillColor: 'yellow',
+			fillColor: 'white',
 			strokeColor: 'black'
 		});
 
@@ -222,7 +222,7 @@
 			
 			// Move the item 1/20th of its width to the right. This way
 			// larger circles move faster than smaller circles:
-			item.position.x += item.bounds.width / 20;
+			item.position.x += item.bounds.width / 10;
 
 			// If the item has left the view on the right, move it back
 			// to the left:
