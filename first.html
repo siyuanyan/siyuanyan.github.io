@@ -32,6 +32,7 @@
 		}
 		
 		console.log(project.activeLayer.children[0].bounds)
+		// 每个键对应一段声音、一种颜色
 		var keyData = {
 			q: {
 				sound: new Howl({
@@ -190,7 +191,7 @@
 				color: '#2c3e50'
 			}
 		}
-
+		// 按键生成一个圆
 		var circles = [];
 
 		function onKeyDown(event) {
@@ -198,7 +199,9 @@
 				var maxPoint = new Point(view.size.width, view.size.height);
 				var randomPoint = Point.random();
 				var point = maxPoint * randomPoint;
+				// 视图上任意一个点画一个半径为500的圆
 				var newCircle = new Path.Circle(point, 500)
+				// 为圆关联键值对应的颜色和声音
 				newCircle.fillColor = keyData[event.key].color;
 				keyData[event.key].sound.play();
 				circles.push(newCircle);
@@ -206,7 +209,8 @@
 			
 				
 		}
-
+		
+		// 每帧缩小圆，如果太小从视图里去掉它
 		function onFrame(event){
 		  for(var i = 0; i < circles.length; i++){
 			circles[i].scale(0.9);
